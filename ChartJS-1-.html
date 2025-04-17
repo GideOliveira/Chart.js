@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implementando ChartJs</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+<!-- 1° parte( linha 12 a 16) onde desenha o gráfico-->
+  <body>
+    <br><br>
+    <div class="chart-container">
+      <canvas id="myChart"></canvas> 
+    </div>
+  </body>
+
+<!-- 2° parte (linha 18 a 45) configurações do gráfico-->
+<script>
+  const labels = [ /*const (declara uma variavel) não altera o valor, nasce e morre com o mesmo valor*/
+    'january', 
+    'February', 
+    'March', 
+    'April', 
+    'May', 
+    'June'
+  ];
+
+  const data = { /*declara a constante data*/
+    labels: labels, /*declara variavel labels, que assume o valor da const criada acima*/
+    datasets: [{ /*declaração das métricas*/
+      label: 'My First dataset', /*legenda das linhas*/
+      backgroundColor: 'rgb(0,99,0)', /*cor dos marcos/bolinhas*/
+      borderColor: 'rgb(0,99,0)', /*cor das linhas|representa cor no formato RGB (Red, Green, Blue)*/
+      data: [0, 35, 5, 2, 20, 30, 45], /*dados*/
+      }]
+  };
+
+  const config = { /*configura o tipo de gráfico*/
+    type: 'line', /*define o tipo usado*/
+    data: data, /*pega o valor da const data*/
+    options: {},
+  };
+
+</script>
+
+<!-- 3° parte (linha 48 a 53) pega as configurações e cria um novo gráfico-->
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'), 
+    config
+  );
+  </script>
+
+</html>
